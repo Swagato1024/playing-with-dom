@@ -1,0 +1,17 @@
+  <script>
+      calculteDepth = (parent) => {
+        let max = 0;
+
+        if (!parent.hasChildNodes) return 0;
+        const children = parent.children;
+
+        for (const child of children) {
+          max = Math.max(max, calculteDepth(child) + 1);
+        }
+        return max;
+      };
+
+      window.onload = () => {
+        console.log(document);
+      };
+    </script>

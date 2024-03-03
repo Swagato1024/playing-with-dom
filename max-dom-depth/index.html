@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Max Depth</title>
+
+    <script>
+      const calculateDepth = (parent) => {
+        let max = 0;
+        let deepestNode = document;
+
+        if (!parent.hasChildNodes()) {
+          console.log("returning", parent, depth);
+
+          return { depth: 0, nodeName: parent };
+        }
+
+        for (const childNode of parent.children) {
+          const currentNode = calculateDepth(childNode);
+
+          if (currentNode.depth + 1 > max) {
+            deepestNode = currentNode.nodeName;
+            max = currentNode.depth + 1;
+          }
+
+          return { depth: max, nodeName: deepestNode };
+        }
+      };
+
+      window.onload = () => {
+        console.log(calculateDepth(document));
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="depth-3">
+      <div class="depth-4">Depth 4</div>
+    </div>
+
+    <div class="depth-3">Depth 3</div>
+  </body>
+</html>
